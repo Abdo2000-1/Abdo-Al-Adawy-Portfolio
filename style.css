@@ -438,3 +438,21 @@ section.visible {
     opacity: 1;
     transform: translateY(0);
 }
+/* --- Hero Buttons Container --- */
+.hero-buttons {
+    display: flex; /* لوضع الأزرار بجانب بعضها */
+    gap: 20px; /* مسافة بين الزرين */
+    margin-top: 40px; /* مسافة من النص الذي فوقه */
+}
+
+/* --- Secondary Button Style (for CV) --- */
+.cta-button.secondary {
+    background-color: transparent; /* خلفية شفافة */
+    color: var(--sky-blue); /* لون النص لبني */
+    border: 2px solid var(--sky-blue); /* إطار باللون اللبني */
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--sky-blue-tint); /* لون لبني شفاف عند الوقوف عليه */
+    color: var(--sky-blue);
+}
