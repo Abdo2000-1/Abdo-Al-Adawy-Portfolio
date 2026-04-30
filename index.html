@@ -1,97 +1,366 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdo Al Adawy | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdo Al-Adawy | Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="nav-logo">Abdo Al Adawy</a>
-            <ul class="nav-menu">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- ══════════════════════════════════════ CURSOR ══════════════════════════════════════ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
 
-    <header class="hero">
-        <div class="hero-bg-overlay"></div> <div class="hero-container">
-            <div class="hero-text">
-    <h1>Software Engineer & Game Developer</h1>
-    <p>Building innovative software solutions and immersive game experiences.</p>
-    <div class="hero-buttons">
-        <a href="#projects" class="cta-button">View My Work</a>
-        <a href="My_CV.pdf" target="_blank" class="cta-button secondary">Download CV</a>
+  <!-- ══════════════════════════════════════ LOADER ══════════════════════════════════════ -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-bar"></div>
+      <span class="loader-text" id="loaderText">0%</span>
     </div>
-</div>
-            <div class="hero-image">
-                <img src="profile.png" alt="Abdo Al Adawy Professional Photo">
-                </div>
-        </div>
-    </header>
+  </div>
 
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                Driven 2nd-year student at Cairo University's Faculty of Computers and Artificial Intelligence, specializing in Software Engineering. I have a strong foundation in C++ and C#, complemented by practical experience in Python and core web fundamentals. I am a dedicated problem-solver with a proven ability to learn new languages and technologies quickly, always eager to apply my skills to build innovative and efficient software solutions.
-            </p>
-        </section>
-
-        <section id="skills">
-            <h2>My Skills</h2>
-            <div class="skills-container">
-                <span class="skill-tag">C++</span>
-                <span class="skill-tag">C#</span>
-                <span class="skill-tag">Web Development</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Problem Solving</span>
-                <span class="skill-tag">Software Engineering</span>
-                <span class="skill-tag">Game Development</span>
-                <span class="skill-tag">Unity</span>
-
-                
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>My Projects</h2>
-            <div class="project-card">
-                <h3>Baby Photoshop Console App</h3>
-                <p class="project-description">
-                    A C++ console application that allows users to load an image, apply a variety of filters (e.g., Grayscale, Blur, Edge Detection), and save the result. This project demonstrates strong C++ fundamentals and an understanding of image processing algorithms.
-                </p>
-                <p class="project-tech"><strong>Technologies:</strong> C++, Git</p>
-                <a href="https://github.com/Abdo2000-1/Baby-Photoshop-Console-App" target="_blank" class="project-link">View on GitHub</a>
-            </div>
-            </section>
-
-        <section id="contact">
-            <h2>Get In Touch</h2>
-            <p>I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out!</p>
-            <a href="mailto:abdoaladawy2000@gmail.com" class="cta-button">Email Me</a>
-        </section>
-    </main>
-
-   <footer>
-    <div class="social-links">
-        <a href="https://github.com/Abdo2000-1" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/abd-al-rahman-hassan-al-adawy-a2238133b" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://x.com/AbdoAlAdawy2000" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://www.youtube.com/@AbdEl-RahmanHasanAl-Adawy" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="https://www.facebook.com/engineerabdoaladawey/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+  <!-- ══════════════════════════════════════ NAV ══════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">
+      <span class="logo-bracket">{</span>
+      <span class="logo-name" id="navName">DEV</span>
+      <span class="logo-bracket">}</span>
     </div>
-    <p>&copy; 2025 Abdo Al Adawy. All Rights Reserved.</p>
-</footer>
 
-    <script src="script.js"></script>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link active" data-section="home">الرئيسية</a></li>
+      <li><a href="#about" class="nav-link" data-section="about">عني</a></li>
+      <li><a href="#skills" class="nav-link" data-section="skills">المهارات</a></li>
+      <li><a href="#projects" class="nav-link" data-section="projects">المشاريع</a></li>
+      <li><a href="#contact" class="nav-link" data-section="contact">تواصل</a></li>
+    </ul>
 
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-icon sun">☀</span>
+        <span class="theme-icon moon">☽</span>
+      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#home" class="mobile-link">الرئيسية</a></li>
+      <li><a href="#about" class="mobile-link">عني</a></li>
+      <li><a href="#skills" class="mobile-link">المهارات</a></li>
+      <li><a href="#projects" class="mobile-link">المشاريع</a></li>
+      <li><a href="#contact" class="mobile-link">تواصل</a></li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════════════════════ HERO ══════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="grid-overlay"></div>
+      <div class="noise-overlay"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-tag reveal">
+        <span class="tag-dot"></span>
+        <span>Available for Freelance &amp; Remote Work</span>
+      </div>
+
+      <h1 class="hero-title reveal">
+        <span class="title-line" id="heroName">Abdo Al-Adawy</span>
+        <span class="title-line accent" id="heroTitle">Full Stack Developer</span>
+      </h1>
+
+      <p class="hero-desc reveal" id="heroDesc">
+        CS student at Cairo University — building clean, scalable web apps from pixel-perfect UIs to robust backends with Django &amp; React.
+      </p>
+
+      <div class="hero-cta reveal">
+        <a href="#projects" class="btn btn-primary">
+          <span>View My Work</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="profile-frame">
+        <div class="frame-glow"></div>
+        <div class="frame-border"></div>
+        <img src="image/profile.jpg" alt="Profile" class="profile-img" id="profileImg" />
+        <div class="frame-corner tl"></div>
+        <div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div>
+        <div class="frame-corner br"></div>
+      </div>
+
+      <div class="floating-card card-1">
+        <span class="card-icon">⚛️</span>
+        <span>Web Development</span>
+      </div>
+      <div class="floating-card card-2">
+        <span class="card-icon">➕➕</span>
+        <span>++C</span>
+      </div>
+      <div class="floating-card card-3">
+        <span class="card-icon">🎨</span>
+        <span>UX & UI Design</span>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>اسحب للأسفل</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ ABOUT ══════════════════════════════════════ -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Who I Am</span>
+        <h2 class="section-title reveal">About Me</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="about-lead" id="aboutLead">
+            Second-year CS student at Cairo University's Faculty of Computers &amp; AI — shipping real products while still in college.
+          </p>
+          <p id="aboutBody">
+            I'm a Full Stack Developer who thrives across the entire stack: crafting responsive UIs with React &amp; Tailwind, building solid backends with Python/Django, and diving deep into systems programming with C++. I've led teams, delivered commercial clients projects, and have a genuine passion for clean architecture, good UX, and solving hard problems.
+          </p>
+
+          <div class="about-info">
+            <div class="info-item">
+              <span class="info-icon">📍</span>
+              <span id="infoLocation">Giza, Egypt</span>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">🎓</span>
+              <span>Faculty of Computers &amp; AI — Cairo University, Year 2</span>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">📧</span>
+              <span id="infoEmail">abdoaladawy2000@gmail.com</span>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">💼</span>
+              <span id="infoAvail">Available for Freelance &amp; Remote — Part-time</span>
+            </div>
+          </div>
+
+          <a href="CV/Abdo_Al-Adawy_CV.pdf" class="btn btn-primary download-btn" id="cvBtn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            <span>Download CV</span>
+          </a>
+        </div>
+
+        <div class="about-visual reveal">
+          <div class="code-block">
+            <div class="code-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="code-filename">about.cpp</span>
+            </div>
+            <pre class="code-body"><code><span class="c-keyword">class</span> <span class="c-class">Developer</span> {
+<span class="c-keyword">public</span>:
+    string name   = <span class="c-str"> "Abdo Al-Adawy" </span>;
+    string uni    = <span class="c-str"> "Cairo University" </span>;
+    string year   = <span class="c-str"> "2nd Year — CS & AI" </span>;
+
+   string passion = <span class="c-str">"Building things that matter"</span>;
+
+    string greet() {
+        <span class="c-keyword">return</span> <span class="c-str">"Hey, let's build something! 🚀"</span>;
+    }
+};</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ SKILLS ══════════════════════════════════════ -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What I Know</span>
+        <h2 class="section-title reveal">Technical Skills</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="skills-tabs reveal">
+        <button class="tab-btn active" data-tab="frontend">Frontend</button>
+        <button class="tab-btn" data-tab="backend">Backend & Systems</button>
+        <button class="tab-btn" data-tab="tools">Tools & DevOps</button>
+        <button class="tab-btn" data-tab="soft"> Other Skills </button>
+      </div>
+
+      <div class="skills-panels">
+        <!-- Frontend Panel -->
+        <div class="skills-panel active" id="tab-frontend">
+          <div class="skills-grid" id="frontendSkills"></div>
+        </div>
+        <!-- Backend Panel -->
+        <div class="skills-panel" id="tab-backend">
+          <div class="skills-grid" id="backendSkills"></div>
+        </div>
+        <!-- Tools Panel -->
+        <div class="skills-panel" id="tab-tools">
+          <div class="skills-grid" id="toolsSkills"></div>
+        </div>
+        <!-- Soft Skills Panel -->
+        <div class="skills-panel" id="tab-soft">
+          <div class="skills-grid" id="softSkills"></div>
+        </div>
+      </div>
+
+      <!-- Tech Ticker -->
+      <div class="ticker-wrap reveal">
+        <div class="ticker">
+          <div class="ticker-track" id="tickerTrack"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ PROJECTS ══════════════════════════════════════ -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What I've Built</span>
+        <h2 class="section-title reveal">Projects</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="projects-filter reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="cpp">C++</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ CONTACT ══════════════════════════════════════ -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Let's Talk</span>
+        <h2 class="section-title reveal">Get In Touch</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>Have a project or idea?</h3>
+          <p>I'm available for freelance work and remote part-time roles. Whether it's a web app, a quick consultation, or a collab — I'd love to hear from you.</p>
+
+          <div class="contact-links" id="contactLinks">
+            <a href="mailto:abdoaladawy2000@gmail.com" class="contact-link" id="contactEmail">
+              <div class="link-icon">📧</div>
+              <div class="link-info">
+                <span class="link-label">Email</span>
+                <span class="link-val">abdoaladawy2000@gmail.com</span>
+              </div>
+            </a>
+            <a href="https://wa.me/201127927752" class="contact-link" target="_blank" rel="noopener">
+              <div class="link-icon">💬</div>
+              <div class="link-info">
+                <span class="link-label">WhatsApp</span>
+                <span class="link-val">+20 112 792 7752</span>
+              </div>
+            </a>
+            <a href="https://github.com/Abdo2000-1" class="contact-link" id="contactGithub" target="_blank" rel="noopener">
+              <div class="link-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </div>
+              <div class="link-info">
+                <span class="link-label">GitHub</span>
+                <span class="link-val">github.com/Abdo2000-1</span>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/abdo-al-adawy-a2238133b" class="contact-link" id="contactLinkedin" target="_blank" rel="noopener">
+              <div class="link-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </div>
+              <div class="link-info">
+                <span class="link-label">LinkedIn</span>
+                <span class="link-val">Abdo Al-Adawy</span>
+              </div>
+            </a>
+            <a href="https://www.facebook.com/engineerabdoaladawey/" class="contact-link" target="_blank" rel="noopener">
+              <div class="link-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+              </div>
+              <div class="link-info">
+                <span class="link-label">Facebook</span>
+                <span class="link-val">Engineer Abdo Al-Adawy</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="fname">Name</label>
+              <input type="text" id="fname" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="femail">Email</label>
+              <input type="email" id="femail" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="fsubject">Subject</label>
+              <input type="text" id="fsubject" name="subject" placeholder="What's this about?" />
+            </div>
+            <div class="form-group">
+              <label for="fmessage">Message</label>
+              <textarea id="fmessage" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loading hidden">⟳ Sending...</span>
+            </button>
+            <div class="form-success hidden" id="formSuccess">
+              ✅ Message sent! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ FOOTER ══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">{ <span id="footerName">DEV</span> }</span>
+        <p>صُنع بـ ❤️ وكثير من الكود</p>
+        <p class="footer-copy">© <span id="year"></span> جميع الحقوق محفوظة</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
